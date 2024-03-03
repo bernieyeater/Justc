@@ -23,7 +23,7 @@
             <h4><?php echo $message; ?></h4><br>
         <?php endif; ?>
 
-        <h2>Join Just Calories!</h2>
+        <h2>Log Food Below!</h2>
         <form action="log.php" method="post">
             <label>Description</label>
             <input type="text" name="Description"/><br>
@@ -33,6 +33,9 @@
             
             <label>Portion</label>
             <input type="text" name="Portion"/><br>
+            
+           <label>Units</label>
+            <input type="text" name="Units"/><br>
             
             <input type="hidden" name='action' value="add_food_item">
             

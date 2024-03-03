@@ -8,6 +8,7 @@ require_once 'models/logmodel.php';
 
 $action = htmlspecialchars(filter_input(INPUT_POST, "action"));
 $Description = htmlspecialchars(filter_input(INPUT_POST, "Description"));
+$Unit = htmlspecialchars(filter_input(INPUT_POST, "Units"));
 $Calories = filter_input(INPUT_POST, 'Calories', FILTER_VALIDATE_INT);
 $Portion = filter_input(INPUT_POST, 'Portion', FILTER_VALIDATE_FLOAT);
 $user_radial_button = filter_input(INPUT_POST, "user_radial_button");
@@ -28,7 +29,7 @@ if ($user_radial_button === "Breakfast") {
 //echo "Meal Type:".$Type_meal;
 $currentDate = date('Y-m-d');
 $id=$_SESSION["user_id"];
-$Unit="Cup";
+//$Unit="Cup";
 $error_message = "";
 
 echo "ID:".$id;
