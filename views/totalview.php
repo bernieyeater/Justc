@@ -9,7 +9,7 @@
             </style>
     </head>
     <body>
-        <h1>Just Calories Total Calories Page</h1>
+        <h1> Total Calories Today</h1>
         <?php include('views/topbarnav.php');?>
         <?php
         //Error messeges
@@ -21,6 +21,7 @@
             echo "<h4> $message";
             echo "<h4><br>";
         } ?>  
+        <br>
         <table>
             <tr>
                 <th>Meal</th>
@@ -29,21 +30,25 @@
                 <th>Portion</th>
                 <th>Unit</th>
             </tr>
-            <?php foreach($fooditems as $fooditem) : ?>
+            <?php foreach($foodlogs as $foodlog) : ?>
             <tr>
-                <td><?php echo meal_desc($fooditem['Meal']); ?></td>
-                <td><?php echo $fooditem['Description']; ?></td> 
-                <td><?php echo $fooditem['Calories']; ?></td> 
-                <td><?php echo $fooditem['Portion']; ?></td> 
-                <td><?php echo $fooditem['Unit']; ?></td> 
+                <td><?php echo meal_desc($foodlog['Meal']); ?></td>
+                <td><?php echo $foodlog['Description']; ?></td> 
+                <td><?php echo $foodlog['Calories']; ?></td> 
+                <td><?php echo $foodlog['Portion']; ?></td> 
+                <td><?php echo $foodlog['Unit']; ?></td> 
             </tr>
-             <?php $totalCalories += $fooditem['Calories']; // Add calories to total ?>
+             <?php $totalCalories += $foodlog['Calories']; // Add calories to total ?>
             <?php endforeach; ?>
         </table>
+        <br>
         <tr>
             <td colspan="5" style="text-align:right;"><strong>Total Calories: <?php echo $totalCalories; ?></strong></td>
         </tr>
-
+        <br><br>
+        <tr>
+            <td colspan="5" style="text-align:right;"><strong>Total Goal: <?php echo $user_goal; ?></strong></td>
+        </tr>
 
         <?php include('views/footer.php');?>
     </body>

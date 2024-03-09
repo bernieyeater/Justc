@@ -27,6 +27,7 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
+                <th>Goal</th>
             </tr>
             <?php foreach($users as $user) : ?>
             <tr>
@@ -34,6 +35,7 @@
                 <td><?php echo $user['FName']; ?></td> 
                 <td><?php echo $user['LName']; ?></td> 
                 <td><?php echo $user['email_address']; ?></td> 
+                <td><?php echo $user['goal']; ?></td> 
             </tr>
             <?php endforeach; ?>
         </table>
@@ -50,6 +52,8 @@
             <input type="text" name="email_address"/><br>  
             <label>Password:</label>
             <input type="text" name="password"/><br>  
+            <label>Goal:</label>
+            <input type="text" name="goal"/><br> 
             <label>&nbsp;</label>
             <input type="hidden" name='action' value="update_or_add"/>   
             <br>

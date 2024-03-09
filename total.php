@@ -4,15 +4,18 @@ session_start();
 try {
 require_once 'models/database.php';
 require_once 'models/logmodel.php';
-$fooditems = []; // Initialization
+require_once 'models/usersmodel.php';
+$foodlogs = []; // Initialization
 $totalCalories =0;
+$user_goal= 0;
 $error_message = "";
 
 $message ="";
 
 
 //Get all users to display at top of screen
-$fooditems = select_today3_food($_SESSION["user_id"]);
+$foodlogs = select_today3_food($_SESSION["user_id"]);
+$user_goal= get_user_goal($_SESSION["user_id"]);
 
 } catch (Exception $e){
     $error_message = $e->getMessage();

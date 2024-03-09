@@ -5,6 +5,7 @@ try {
 require_once 'models/database.php';
 require_once 'models/usersmodel.php';
 
+$goal = 1;
 $action = htmlspecialchars(filter_input(INPUT_POST, "action"));
 $FName = htmlspecialchars(filter_input(INPUT_POST, "FName"));
 $LName = htmlspecialchars(filter_input(INPUT_POST, "LName"));
@@ -13,9 +14,10 @@ $password_h = password_hash($password, PASSWORD_DEFAULT);
 $email_address = htmlspecialchars(filter_input(INPUT_POST, "email_address"));
 $cash_balance = filter_input(INPUT_POST, "cash_balance", FILTER_VALIDATE_FLOAT);
 $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
+$goal = filter_input(INPUT_POST, "goal", FILTER_VALIDATE_INT);
 $user_radial_button = filter_input(INPUT_POST, "user_radial_button");
 $error_message = "";
-$user = new User($FName, $LName, $email_address, $id, $password_h);
+$user = new User($FName, $LName, $email_address, $id, $password_h, $goal);
 $message ="";
 
 if ($action=="update_or_add" && $user_radial_button=="add" && $FName != "" && $email_address!="" && $password!=""){

@@ -6,7 +6,7 @@
         <style>
             h1 { color: blue; }
             h3 { color: red; }
-            h4 { color: green; } /* Assuming you want a different color for general messages */
+            h4 { color: green; }
         </style>
     </head>
     <body>
@@ -36,7 +36,7 @@
             
            <label>Units</label>
             <input type="text" name="Units"/><br>
-            
+            <br>
             <input type="hidden" name='action' value="add_food_item">
             
             <!-- Meal Type Radio Buttons -->
@@ -49,6 +49,10 @@
             
             <input type="radio" id="dinner" value="Dinner" name="user_radial_button">
             <label for="dinner">Dinner</label><br>
+            <br>
+            <input type="checkbox" id="SubmitGlobal" name="SubmitGlobal" value="1">
+            <label for="available_to_others">Save to Global</label><br>
+            <br>
             
             <input type="submit" value="Add"/>
         </form>

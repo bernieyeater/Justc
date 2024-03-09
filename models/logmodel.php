@@ -1,6 +1,6 @@
 <?php
 
-class fooditem {
+class foodlog {
 private $id, $Date, $Meal, $Description, $Calories, $Portion, $Unit;
 
 public function __construct($id, $Date, $Meal, $Description, $Calories, $Portion, $Unit) {
@@ -62,18 +62,18 @@ public function set_Unit($Unit) {
 }
 }
 //user model
-function insert_fooditem($fooditem){
+function insert_foodlog($foodlog){
     global $database;
 
     $query = "INSERT INTO foodlog (`id`, `Date`, `Meal`, `Description`, `Calories`, `Portion`, `Unit`) VALUES (:id, :Date, :Meal, :Description, :Calories, :Portion, :Unit)";
     $statement = $database->prepare($query);
-    $statement -> bindValue(":id",$fooditem->get_id());
-    $statement -> bindValue(":Date",$fooditem->get_Date());
-    $statement -> bindValue(":Meal",$fooditem->get_Meal());
-    $statement -> bindValue(":Description",$fooditem->get_Description());
-    $statement -> bindValue(":Calories",$fooditem->get_Calories());
-    $statement -> bindValue(":Portion",$fooditem->get_Portion());
-    $statement -> bindValue(":Unit",$fooditem->get_Unit());
+    $statement -> bindValue(":id",$foodlog->get_id());
+    $statement -> bindValue(":Date",$foodlog->get_Date());
+    $statement -> bindValue(":Meal",$foodlog->get_Meal());
+    $statement -> bindValue(":Description",$foodlog->get_Description());
+    $statement -> bindValue(":Calories",$foodlog->get_Calories());
+    $statement -> bindValue(":Portion",$foodlog->get_Portion());
+    $statement -> bindValue(":Unit",$foodlog->get_Unit());
     $statement->execute();
     $statement->closeCursor();
 }
@@ -88,7 +88,7 @@ function select_today_food() {
         return $theReturn;
     } catch (Exception $e) {
         // Handle or log the error here
-        return []; // Return an empty array to ensure $fooditems is always an array
+        return []; // Return an empty array to ensure $foodlogs is always an array
     }
 }
 
@@ -111,7 +111,7 @@ function select_today2_food() {
         return $theReturn;
     } catch (Exception $e) {
         // Handle or log the error here
-        return []; // Return an empty array to ensure $fooditems is always an array
+        return []; // Return an empty array to ensure $foodlogs is always an array
     }
 }
 
@@ -132,7 +132,7 @@ function select_today3_food($user_id) {
         return $theReturn;
     } catch (Exception $e) {
         // Handle or log the error here
-        return []; // Return an empty array to ensure $fooditems is always an array
+        return []; // Return an empty array to ensure $foodlogs is always an array
     }
 }
 
