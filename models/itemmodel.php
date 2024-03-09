@@ -93,6 +93,54 @@ function insert_fooditem($fooditem){
     $statement->closeCursor();
 }
 
+function select_items() {
+    global $database;
+    try {
+        $query = "SELECT `Myfood_ID`,`id`, `Description`, `Calories`, `Portion`, `Unit`, `SubmitGlobal` , `ApprovedGlobal` FROM `fooditem`";
+        $statement = $database->prepare($query);
+        $statement->execute();
+        $theReturn = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $statement->closeCursor();
+        return $theReturn;
+    } catch (Exception $e) {
+        return []; 
+    }
+}
+
+function search_fooditems($searchTerm) {
+    global $database;
+    $searchTerm = "%{$searchTerm}%"; 
+    try {
+        $query = "SELECT `Myfood_ID`,`id`, `Description`, `Calories`, `Portion`, `Unit`, `SubmitGlobal`, `ApprovedGlobal` FROM `fooditem` WHERE `Description` LIKE :searchTerm";
+        $statement = $database->prepare($query);
+        $statement->bindValue(':searchTerm', $searchTerm);
+        $statement->execute();
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $statement->closeCursor();
+        return $results;
+    } catch (Exception $e) {
+        // Handle or log the error here
+        return [];
+    }
+}
+
+function select_single_fooditem($myfood_id) {
+        global $database; 
+
+        try {
+            $query = "SELECT `Myfood_ID`, `id`, `Description`, `Calories`, `Portion`, `Unit`, `SubmitGlobal`, `ApprovedGlobal` FROM `fooditem` WHERE `Myfood_ID` = :Myfood_ID LIMIT 1";
+            $statement = $database->prepare($query);
+            $statement->bindValue(':Myfood_ID', $myfood_id, PDO::PARAM_INT);
+            $statement->execute();
+            
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            $statement->closeCursor();
+            
+            return $result;
+        } catch (Exception $e) {
+            return null; // Or handle the exception as needed
+        }
+    }
 ?>
 
 

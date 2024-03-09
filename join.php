@@ -15,7 +15,7 @@ $password_h = password_hash($password, PASSWORD_DEFAULT);
 $email_address = htmlspecialchars(filter_input(INPUT_POST, "email_address"));
 $user_radial_button = filter_input(INPUT_POST, "user_radial_button");
 $error_message = "";
-$user = new User($FName, $LName, $email_address, 0, $password_h);
+$user = new User($FName, $LName, $email_address, 0, $password_h,0);
 $message ="";
 
 if ($action=="add" &&  $FName != "" && $LName != "" && $email_address!="" && $password!=""){

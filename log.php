@@ -14,7 +14,7 @@ $Calories = filter_input(INPUT_POST, 'Calories', FILTER_VALIDATE_INT);
 $SubmitGlobal = filter_input(INPUT_POST, 'SubmitGlobal', FILTER_VALIDATE_INT);
 $Portion = filter_input(INPUT_POST, 'Portion', FILTER_VALIDATE_FLOAT);
 $user_radial_button = filter_input(INPUT_POST, "user_radial_button");
-//$Type_meal = htmlspecialchars(filter_input(INPUT_POST, "Type_meal"));
+
 
 if ($user_radial_button === "Breakfast") {
     $Meal = 1;
@@ -23,15 +23,12 @@ if ($user_radial_button === "Breakfast") {
 } elseif ($user_radial_button === "Dinner") {
     $Meal = 3;
 } else {
-    // Handle unexpected value or no selection
-    $Meal = 0; // or another default value or error handling
+
+    $Meal = 0; 
 }
 
-//$user_radial_button = filter_input(INPUT_POST, "type_meal");
-//echo "Meal Type:".$Type_meal;
 $currentDate = date('Y-m-d');
 $id=$_SESSION["user_id"];
-//$Unit="Cup";
 $error_message = "";
 
 $thefood = new foodlog($id, $currentDate, $Meal, $Description, $Calories, $Portion, $Unit);

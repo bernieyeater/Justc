@@ -51,7 +51,7 @@
             <label for="dinner">Dinner</label><br>
             <br>
             <input type="checkbox" id="SubmitGlobal" name="SubmitGlobal" value="1">
-            <label for="available_to_others">Save to Global</label><br>
+            <label for="available_to_others">Save to List</label><br>
             <br>
             
             <input type="submit" value="Add"/>

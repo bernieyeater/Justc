@@ -9,7 +9,7 @@ public function __construct($FName, $LName, $email_address, $id, $password_h, $g
     $this->email_address = $email_address;
     $this->id = $id;
     $this->password_h=$password_h;
-    $this->goal = $goal;
+    $this->goal = $goal; 
 }
 
 public function get_FName() {
