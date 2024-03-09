@@ -124,7 +124,7 @@ function select_today3_food($user_id) {
         
         $statement = $database->prepare($query);
         $statement->bindValue(':today', $today);
-        $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT); // Bind the user ID parameter
+        $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT); 
         $statement->execute();
         
         $theReturn = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -140,6 +140,7 @@ function meal_desc($meal_number) {
     if ($meal_number === 1) { return "Breakfast"; }
     if ($meal_number === 2) { return "Lunch"; }
     if ($meal_number === 3) { return "Dinner"; }
+    if ($meal_number === 4) { return "Snack"; }
     return "Unknown"; // Default case
 }
 ?>
