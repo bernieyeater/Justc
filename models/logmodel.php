@@ -77,9 +77,71 @@ function insert_fooditem($fooditem){
     $statement->execute();
     $statement->closeCursor();
 }
+function select_today_food() {
+    global $database;
+    try {
+        $query = "SELECT `id`, `Date`, `Meal`, `Description`, `Calories`, `Portion`, `Unit` FROM `foodlog`";
+        $statement = $database->prepare($query);
+        $statement->execute();
+        $theReturn = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $statement->closeCursor();
+        return $theReturn;
+    } catch (Exception $e) {
+        // Handle or log the error here
+        return []; // Return an empty array to ensure $fooditems is always an array
+    }
+}
 
+function select_today2_food() {
+    global $database;
+    try {
+        // Get today's date in the same format as your Date column
+        $today = date('Y-m-d');
+        
+        // Modify the query to select records where the date is today
+        $query = "SELECT `id`, `Date`, `Meal`, `Description`, `Calories`, `Portion`, `Unit` FROM `foodlog` WHERE DATE(`Date`) = :today";
+        
+        $statement = $database->prepare($query);
+        // Bind the $today variable to the :today parameter in the SQL query
+        $statement->bindValue(':today', $today);
+        $statement->execute();
+        
+        $theReturn = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $statement->closeCursor();
+        return $theReturn;
+    } catch (Exception $e) {
+        // Handle or log the error here
+        return []; // Return an empty array to ensure $fooditems is always an array
+    }
+}
 
+function select_today3_food($user_id) {
+    global $database;
+    try {
+        $today = date('Y-m-d');
+        
+        $query = "SELECT `id`, `Date`, `Meal`, `Description`, `Calories`, `Portion`, `Unit` FROM `foodlog` WHERE DATE(`Date`) = :today AND `id` = :user_id";
+        
+        $statement = $database->prepare($query);
+        $statement->bindValue(':today', $today);
+        $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT); // Bind the user ID parameter
+        $statement->execute();
+        
+        $theReturn = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $statement->closeCursor();
+        return $theReturn;
+    } catch (Exception $e) {
+        // Handle or log the error here
+        return []; // Return an empty array to ensure $fooditems is always an array
+    }
+}
 
+function meal_desc($meal_number) {
+    if ($meal_number === 1) { return "Breakfast"; }
+    if ($meal_number === 2) { return "Lunch"; }
+    if ($meal_number === 3) { return "Dinner"; }
+    return "Unknown"; // Default case
+}
 ?>
 
 
