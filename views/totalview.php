@@ -29,6 +29,7 @@
                 <th>Calories</th>
                 <th>Portion</th>
                 <th>Unit</th>
+                <th>Delete</th>
             </tr>
             <?php foreach($foodlogs as $foodlog) : ?>
             <tr>
@@ -37,6 +38,9 @@
                 <td><?php echo $foodlog['Calories']; ?></td> 
                 <td><?php echo $foodlog['Portion']; ?></td> 
                 <td><?php echo $foodlog['Unit']; ?></td> 
+               <td>
+                  <a href="deleteFoodItem.php?Log_ID=<?php echo urlencode($foodlog['Log_ID']); ?>">Delete</a>
+               </td>
             </tr>
              <?php $totalCalories += $foodlog['Calories']; // Add calories to total ?>
             <?php endforeach; ?>

@@ -77,50 +77,14 @@ function insert_foodlog($foodlog){
     $statement->execute();
     $statement->closeCursor();
 }
-function select_today_food() {
-    global $database;
-    try {
-        $query = "SELECT `id`, `Date`, `Meal`, `Description`, `Calories`, `Portion`, `Unit` FROM `foodlog`";
-        $statement = $database->prepare($query);
-        $statement->execute();
-        $theReturn = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $statement->closeCursor();
-        return $theReturn;
-    } catch (Exception $e) {
-        // Handle or log the error here
-        return []; // Return an empty array to ensure $foodlogs is always an array
-    }
-}
 
-function select_today2_food() {
-    global $database;
-    try {
-        // Get today's date in the same format as your Date column
-        $today = date('Y-m-d');
-        
-        // Modify the query to select records where the date is today
-        $query = "SELECT `id`, `Date`, `Meal`, `Description`, `Calories`, `Portion`, `Unit` FROM `foodlog` WHERE DATE(`Date`) = :today";
-        
-        $statement = $database->prepare($query);
-        // Bind the $today variable to the :today parameter in the SQL query
-        $statement->bindValue(':today', $today);
-        $statement->execute();
-        
-        $theReturn = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $statement->closeCursor();
-        return $theReturn;
-    } catch (Exception $e) {
-        // Handle or log the error here
-        return []; // Return an empty array to ensure $foodlogs is always an array
-    }
-}
 
 function select_today3_food($user_id) {
     global $database;
     try {
         $today = date('Y-m-d');
         
-        $query = "SELECT `id`, `Date`, `Meal`, `Description`, `Calories`, `Portion`, `Unit` FROM `foodlog` WHERE DATE(`Date`) = :today AND `id` = :user_id";
+        $query = "SELECT `Log_ID`,`id`, `Date`, `Meal`, `Description`, `Calories`, `Portion`, `Unit` FROM `foodlog` WHERE DATE(`Date`) = :today AND `id` = :user_id";
         
         $statement = $database->prepare($query);
         $statement->bindValue(':today', $today);
@@ -133,6 +97,24 @@ function select_today3_food($user_id) {
     } catch (Exception $e) {
         // Handle or log the error here
         return []; // Return an empty array to ensure $foodlogs is always an array
+    }
+}
+
+function delete_foodlog($log_id) {
+    global $database;
+    try {
+        $query = "DELETE FROM `foodlog` WHERE `Log_ID` = :log_id";
+        
+        $statement = $database->prepare($query);
+        $statement->bindValue(':log_id', $log_id, PDO::PARAM_INT);
+        $statement->execute();
+        
+        $statement->closeCursor();
+        
+        return true;
+    } catch (Exception $e) {
+
+        return false;
     }
 }
 

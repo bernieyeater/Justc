@@ -20,13 +20,13 @@
     <?php if ($message != ""): ?>
         <h4><?php echo htmlspecialchars($message); ?></h4><br>
     <?php endif; ?>
-
+        <br>
     <form action="global.php" method="post">
         <label for="searchTerm">Search for a food item:</label>
         <input type="text" id="searchTerm" name="searchTerm">
         <input type="submit" value="Search">
     </form>
-    
+        <br>
     <table>
         <tr>
             <th>Description</th>

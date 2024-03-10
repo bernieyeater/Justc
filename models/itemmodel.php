@@ -93,21 +93,27 @@ function insert_fooditem($fooditem){
     $statement->closeCursor();
 }
 
-function select_items() {
+
+
+function select_items($user_id) {
     global $database;
     try {
-        $query = "SELECT `Myfood_ID`,`id`, `Description`, `Calories`, `Portion`, `Unit`, `SubmitGlobal` , `ApprovedGlobal` FROM `fooditem`";
+        // Modified query to include a WHERE clause that filters by user ID
+        $query = "SELECT `Myfood_ID`, `id`, `Description`, `Calories`, `Portion`, `Unit`, `SubmitGlobal`, `ApprovedGlobal` FROM `fooditem` WHERE `id` = :user_id";
         $statement = $database->prepare($query);
+        $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT); // Bind the user_id parameter
         $statement->execute();
+        
         $theReturn = $statement->fetchAll(PDO::FETCH_ASSOC);
         $statement->closeCursor();
+        
         return $theReturn;
     } catch (Exception $e) {
         return []; 
     }
 }
 
-function search_fooditems($searchTerm) {
+function search_fooditems($searchTerm ) {
     global $database;
     $searchTerm = "%{$searchTerm}%"; 
     try {
@@ -123,6 +129,30 @@ function search_fooditems($searchTerm) {
         return [];
     }
 }
+
+function search_fooditems2($searchTerm, $user_id) {
+    global $database;
+    $searchTerm = "%{$searchTerm}%";
+    try {
+        // Add the user ID condition to the WHERE clause
+        $query = "SELECT `Myfood_ID`, `id`, `Description`, `Calories`, `Portion`, `Unit`, `SubmitGlobal`, `ApprovedGlobal` FROM `fooditem` WHERE `Description` LIKE :searchTerm AND `id` = :user_id";
+        
+        $statement = $database->prepare($query);
+        $statement->bindValue(':searchTerm', $searchTerm);
+        $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT); // Bind the user_id parameter
+        $statement->execute();
+        
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $statement->closeCursor();
+        
+        return $results;
+    } catch (Exception $e) {
+        // Handle or log the error here
+        return [];
+    }
+}
+
+
 
 function select_single_fooditem($myfood_id) {
         global $database; 
