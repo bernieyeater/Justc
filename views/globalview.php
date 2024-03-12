@@ -33,6 +33,7 @@
             <th>Calories</th>
             <th>Portion</th>
             <th>Unit</th>
+            <th>Delete</th>
         </tr>
         <?php foreach($fooditems as $fooditem): ?>
             <tr>
@@ -40,6 +41,9 @@
                 <td><?php echo htmlspecialchars($fooditem['Calories']); ?></td>
                 <td><?php echo htmlspecialchars($fooditem['Portion']); ?></td>
                 <td><?php echo htmlspecialchars($fooditem['Unit']); ?></td>
+                <td>
+                  <a href="deleteFoodList.php?Log_ID=<?php echo urlencode($fooditem['Myfood_ID']); ?>">Delete</a>
+               </td>
             </tr>
         <?php endforeach; ?>
     </table>

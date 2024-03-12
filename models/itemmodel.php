@@ -134,7 +134,6 @@ function search_fooditems2($searchTerm, $user_id) {
     global $database;
     $searchTerm = "%{$searchTerm}%";
     try {
-        // Add the user ID condition to the WHERE clause
         $query = "SELECT `Myfood_ID`, `id`, `Description`, `Calories`, `Portion`, `Unit`, `SubmitGlobal`, `ApprovedGlobal` FROM `fooditem` WHERE `Description` LIKE :searchTerm AND `id` = :user_id";
         
         $statement = $database->prepare($query);
@@ -152,6 +151,24 @@ function search_fooditems2($searchTerm, $user_id) {
     }
 }
 
+function delete_fooditem($Myfood_ID) {
+    global $database;
+    try {
+        // Prepare the DELETE statement to remove the item with the given Myfood_ID
+        $query = "DELETE FROM `fooditem` WHERE `Myfood_ID` = :Myfood_ID";
+        
+        $statement = $database->prepare($query);
+        $statement->bindValue(':Myfood_ID', $Myfood_ID, PDO::PARAM_INT);
+        $statement->execute();
+        
+        $statement->closeCursor();
+        
+        return true; // Indicate success
+    } catch (Exception $e) {
+        // Optionally, log the exception details for debugging purposes
+        return false; // Indicate failure
+    }
+}
 
 
 function select_single_fooditem($myfood_id) {
