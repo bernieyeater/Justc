@@ -12,7 +12,7 @@
         <h1> Total Calories Today</h1>
         <?php include('views/topbarnav.php');?>
         <br>
-        <a href="totaly.php">Yesterday</a>
+        <a href="total.php">Today</a>
         <br>
         <?php
         //Error messeges

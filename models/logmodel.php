@@ -100,6 +100,28 @@ function select_today4_food($user_id) {
 }
 
 
+function select_yesterday_food($user_id) {
+    global $database;
+    try {
+        $yesterday = date('Y-m-d', strtotime('-1 day'));
+        
+        $query = "SELECT `Log_ID`, `id`, `Date`, `Meal`, `Description`, `Calories`, `Portion`, `Unit` FROM `foodlog` WHERE DATE(`Date`) = :yesterday AND `id` = :user_id ORDER BY `Meal`";
+        
+        $statement = $database->prepare($query);
+        $statement->bindValue(':yesterday', $yesterday);
+        $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+        $statement->execute();
+        
+        $theReturn = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $statement->closeCursor();
+        return $theReturn;
+    } catch (Exception $e) {
+        return []; 
+    }
+}
+
+
+
 function delete_foodlog($log_id) {
     global $database;
     try {
@@ -117,6 +139,7 @@ function delete_foodlog($log_id) {
         return false;
     }
 }
+
 
 function meal_desc($meal_number) {
     if ($meal_number === 1) { return "Breakfast"; }
