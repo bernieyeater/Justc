@@ -9,7 +9,7 @@
             </style>
     </head>
     <body>
-        <h1> Total Calories Today</h1>
+        <h1> Total Calories Yesterday</h1>
         <?php include('views/topbarnav.php');?>
         <br>
         <a href="total.php">Today</a>
@@ -56,7 +56,7 @@
         <tr>
             <td colspan="5" style="text-align:right;"><strong>Total Goal: <?php echo $user_goal; ?></strong></td>
         </tr>
-
+            <a href="goal.php">Change Goal</a>
         <?php include('views/footer.php');?>
     </body>
      

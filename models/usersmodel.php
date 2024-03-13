@@ -85,6 +85,27 @@ function update_user($user){
     $statement->closeCursor();
 }
 
+function update_user_goal($user_id, $goal) {
+    global $database;
+    try {
+
+        $query = "UPDATE users SET goal = :goal WHERE id = :id";
+        
+        $statement = $database->prepare($query);
+        $statement->bindValue(":id", $user_id, PDO::PARAM_INT); 
+        $statement->bindValue(":goal", $goal); 
+        
+        $statement->execute();
+        $statement->closeCursor();
+        
+        return true; 
+    } catch (Exception $e) {
+
+        return false; 
+    }
+}
+
+
 function delete_user_by_email($user){
     global $database;
     $querry = "DELETE FROM users WHERE email_address = :email_address";

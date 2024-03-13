@@ -56,7 +56,7 @@
         <tr>
             <td colspan="5" style="text-align:right;"><strong>Total Goal: <?php echo $user_goal; ?></strong></td>
         </tr>
-
+            <a href="goal.php">Change Goal</a>
         <?php include('views/footer.php');?>
     </body>
      
