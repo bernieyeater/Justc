@@ -1,5 +1,5 @@
 <?php
-//User controller
+
 session_start();
 try {
 require_once 'models/database.php';
@@ -13,7 +13,6 @@ $error_message = "";
 $message ="";
 
 
-//Get all users to display at top of screen
 $foodlogs = select_today4_food($_SESSION["user_id"]);
 $user_goal= get_user_goal($_SESSION["user_id"]);
 

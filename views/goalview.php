@@ -11,7 +11,7 @@
     <body>
         <h1>Just Calories Goal Page</h1>
         <?php include('views/topbarnav.php');?>
-    
+        <br>
     
     <form action="goal.php" method="post">
         <label for="goal">New Goal Weight:</label>

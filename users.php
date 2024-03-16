@@ -1,5 +1,5 @@
 <?php
-//User controller
+
 session_start();
 try {
 require_once 'models/database.php';

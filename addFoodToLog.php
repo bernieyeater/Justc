@@ -5,7 +5,7 @@ require_once 'models/logmodel.php';
 require_once 'models/itemmodel.php'; 
 
 $user_radial_button = filter_input(INPUT_POST, "user_radial_button");
-//$Type_meal = htmlspecialchars(filter_input(INPUT_POST, "Type_meal"));
+
 
 if ($user_radial_button === "Breakfast") {
     $Meal = 1;
@@ -14,8 +14,8 @@ if ($user_radial_button === "Breakfast") {
 } elseif ($user_radial_button === "Dinner") {
     $Meal = 3;
 } else {
-    // Handle unexpected value or no selection
-    $Meal = 0; // or another default value or error handling
+
+    $Meal = 0; 
 }
 
 if (isset($_POST['Myfood_ID'])) {
@@ -29,7 +29,7 @@ if (isset($_POST['Myfood_ID'])) {
     
     $foodItem = select_single_fooditem($foodItemId);
     
-    $userId = $_SESSION['user_id'] ?? null; // Ensure you have user authentication in place
+    $userId = $_SESSION['user_id'] ?? null; 
     
     if ($foodItem && $userId) {
         $date = date('Y-m-d');
@@ -43,7 +43,7 @@ if (isset($_POST['Myfood_ID'])) {
         
         insert_foodlog($thefood);
         
-        header('Location: total.php'); // Adjust the redirect as necessary
+        header('Location: total.php'); 
         exit();
     } else {
 

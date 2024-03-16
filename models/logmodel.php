@@ -142,9 +142,9 @@ function delete_foodlog($log_id) {
 
 
 function meal_desc($meal_number) {
-    if ($meal_number === 1) { return "Breakfast"; }
-    if ($meal_number === 2) { return "Lunch"; }
-    if ($meal_number === 3) { return "Dinner"; }
+    if ($meal_number == 1) { return "Breakfast"; }
+    if ($meal_number == 2) { return "Lunch"; }
+    if ($meal_number == 3) { return "Dinner"; }
     return "Unknown"; 
 }
 ?>

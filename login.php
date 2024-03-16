@@ -1,7 +1,5 @@
 <?php
-//Source code acknowlegement
-//Code source from Eric Charnesky, video Secure Websites Chapter 21 lecture
-//Login controller
+
 session_start();
 try {
  if (!isset($_SESSION['is_logged_in'])){

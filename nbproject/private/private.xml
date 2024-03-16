@@ -3,26 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Repo/Capstone/Justc/views/loginview.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/views/mealview.php</file>
             <file>file:/C:/Repo/Capstone/Justc/views/usersview.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/models/loginmodel.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/views/logview.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/users.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/views/topbarnav.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/views/footer.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/models/itemmodel.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/views/totalview.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/deleteFoodList.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/global.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/models/usersmodel.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/total.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/log.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/models/logmodel.php</file>
+            <file>file:/C:/Repo/Capstone/Justc/views/totalviewy.php</file>
             <file>file:/C:/Repo/Capstone/Justc/models/database.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/views/joinview.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/deleteFoodItem.php</file>
-            <file>file:/C:/Repo/Capstone/Justc/views/globalview.php</file>
+            <file>file:/C:/Repo/Capstone/Justc/views/goalview.php</file>
+            <file>file:/C:/Repo/Capstone/Justc/views/topbarnav.php</file>
+            <file>file:/C:/Repo/Capstone/Justc/goal.php</file>
+            <file>file:/C:/Repo/Capstone/Justc/views/totalview.php</file>
         </group>
     </open-files>
 </project-private>

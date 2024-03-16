@@ -1,5 +1,4 @@
 <?php
-//Log controller
 
 session_start();
 try {

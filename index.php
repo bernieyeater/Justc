@@ -1,7 +1,7 @@
 <!<!doctype html>
 <html>
     <head>
-        <meta charset="UTF-8"><!-- comment -->
+        <meta charset="UTF-8">
         <title>Just Calories</title>
             <style>
                 h3 {color: red;}
