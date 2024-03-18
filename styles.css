@@ -53,6 +53,43 @@ a.nav-link active {
     
 }
 
+
+.join{
+    background-color: white;
+    border: 4.5pt solid #023047;
+    font-family: ADLaM Display;
+    padding: 20pt;
+    border-radius: 15pt;
+    text-align: left;
+    line-height: 1.25;
+    font-weight: 400;
+    font-size: 20pt;
+    margin-top: 20pt;
+
+}
+
+
+.login{
+    background-color: white;
+    border: 4.5pt solid #023047;
+    font-family: ADLaM Display;
+    padding: 20pt;
+    border-radius: 15pt;
+    text-align: left;
+    line-height: 1.25;
+    font-weight: 400;
+    font-size: 20pt;
+    margin-top: 100pt;
+    
+
+}
+
+
+.button:hover {
+    background-color: orange;
+}
+
+
 h1 {
     color: black;
     background-color: #8ecae6;

@@ -75,51 +75,53 @@
             echo "<h4> $message";
             echo "<h4><br>";
         } ?>
-
-        
-        
+   
+      
         <div class="container">
-           
             <div class="row">
-     
                 <div class="col-3"></div>
-		<div class="col-6">
-      
-        
-                <div class="box">
-              
-      
+                <div class="col-6">
+                <div class="join">
+                
+            
             <h2>Join Just Calories!</h2>
             <br>
         <form action="join.php" method="post">
-            <label>First Name:</label>
-            <input type="text" name="FName"/><br> 
-            <br>
-            <label>Last Name:</label>
-            <input type="text" name="LName"/><br>
-            <br>
-            <label>Email address:</label>
-            <input type="text" name="email_address"/><br>  
-            <br>
-            <label>Password:</label>
-            <input type="text" name="password"/><br>  
-            <br>
+            
+             <div class="mb-3 mt-3">
+                <label>First Name:</label>
+                <input type="text" name="FName" class="form-control"/>
+             </div>
+
+                
+             <div class="mb-3">
+                <label>Last Name:</label>
+                <input type="text" name="LName" class="form-control"/>
+             </div>
+              
+                
+             <div class="mb-3">
+                <label>Email address:</label>
+                <input type="text" name="email_address" class="form-control"/>
+             </div>
+                 
+                
+             <div class="mb-3">
+                <label>Password:</label>
+                <input type="text" name="password" class="form-control"/>
+             </div>     
+                
             <label>&nbsp;</label>
             <input type="hidden" name='action' value="add"/>   
             <input type="submit" value="Add"/>
         </form>
-            
-            
-            
-                </div>
+                   
                     
                     <div class="col-2"></div>
-                    
+                </div>    
             </div> 
         </div> 
         
-      
-             
                 
         <div class="footer">
                 <p>2024 JustCalories, Inc.</p>
